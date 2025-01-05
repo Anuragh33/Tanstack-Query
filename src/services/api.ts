@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Todo } from '../types/todo'
 import { Projects } from '../types/projects'
-import { Products } from '../types/products'
+import { Product } from '../types/products'
 
 export const BASE_URL = 'http://localhost:8080'
 export const axiosInstance = axios.create({ baseURL: BASE_URL })
@@ -36,7 +36,7 @@ export const getProjects = async (page = 1) => {
 
 export const getProducts = async ({ pageParam }: { pageParam: number }) => {
   return (
-    await axiosInstance.get<Products[]>(
+    await axiosInstance.get<Product[]>(
       `products?_page=${pageParam + 1}&_limit=3`
     )
   ).data
